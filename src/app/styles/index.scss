@@ -10,4 +10,13 @@
 	color: var(--primary-color);
 
 	min-height: 100vh;
+	box-sizing: border-box;
+}
+
+.content-page {
+	display: flex;
+}
+
+.page-wrapper {
+	padding: 20px;
 }
