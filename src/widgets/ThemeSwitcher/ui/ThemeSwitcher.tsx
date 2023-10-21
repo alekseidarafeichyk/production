@@ -13,10 +13,10 @@ export const ThemeSwitcher: FC = () => {
         <Button onClick={toggleTheme}>
             {theme === Theme.DARK
 ? (
-				<LightModeIcon className={cls.switchIcon} />
+				<LightModeIcon className={cls["switch-icon"]} />
 			)
 : (
-				<DarkModeIcon className={cls.switchIcon} />
+				<DarkModeIcon className={cls["switch-icon"]} />
 			)}
         </Button>
     )
