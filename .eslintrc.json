@@ -1,4 +1,4 @@
-module.exports = {
+{
     "env": {
         "browser": true,
         "es2021": true
@@ -29,8 +29,8 @@ module.exports = {
     ],
     "rules": {
         "indent": ["error", 4, {
-            'offsetTernaryExpressions': true,
-            'ignoredNodes': ['ConditionalExpression']
+            "offsetTernaryExpressions": true,
+            "ignoredNodes": ["ConditionalExpression"]
         }],
         "react/react-in-jsx-scope": "off",
         "react/no-deprecated": "off",
