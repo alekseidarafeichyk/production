@@ -1,0 +1,9 @@
+.not-found-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    font: var(--font-l);
+    height: calc(100vh - var(--navbar-height));
+    color: var(--inverted-color);
+}
