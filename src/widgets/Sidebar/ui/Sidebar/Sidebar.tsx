@@ -1,9 +1,9 @@
 import { type FC, useState } from 'react'
 import cls from './Sidebar.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher/ui/ThemeSwitcher'
-import { LanguageSwitcher } from 'widgets/LanguageSwitcher/ui/LanguageSwitcher'
 import { useTranslation } from 'react-i18next'
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
+import { LanguageSwitcher } from 'widgets/LanguageSwitcher'
 
 interface SidebarProps {
 	className?: string
