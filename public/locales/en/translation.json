@@ -1,5 +1,6 @@
 {
 	"Язык": "English",
 	"Загрузка": "Loading",
-	"Переключить": "toggle"
+	"Переключить": "toggle",
+	"throw error": "call error"
 }
