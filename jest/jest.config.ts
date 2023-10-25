@@ -4,6 +4,7 @@
  */
 
 import type { Config } from 'jest'
+import path from 'path'
 
 const config: Config = {
     // All imported modules in your tests should be mocked automatically
@@ -38,13 +39,19 @@ const config: Config = {
     moduleDirectories: [
         'node_modules'
     ],
+    modulePaths: ["<rootDir>/src"],
     // The glob patterns Jest uses to detect test files
     testMatch: [
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
     ],
+      // A list of paths to modules that run some code to configure or set up the testing framework before each test
+    setupFilesAfterEnv: ['<rootDir>/jest/jest-setup.ts'],
     // The root directory that Jest should scan for tests and modules within
     rootDir: '../',
-
+    moduleNameMapper: {
+        '\\.s?css$': 'identity-obj-proxy',
+        '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    }
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,
 
@@ -157,9 +164,6 @@ const config: Config = {
 
     // The paths to modules that run some code to configure or set up the testing environment before each test
     // setupFiles: [],
-
-    // A list of paths to modules that run some code to configure or set up the testing framework before each test
-    // setupFilesAfterEnv: [],
 
     // The number of seconds after which a test is considered as slow and reported as such in the results.
     // slowTestThreshold: 5,
