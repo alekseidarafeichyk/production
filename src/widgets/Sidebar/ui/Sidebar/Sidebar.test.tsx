@@ -1,9 +1,9 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import { renderWithTranslation } from 'shared/lib/tests/renderWithTranslation';
-import { Sidebar } from 'widgets/Sidebar';
+import { fireEvent, render, screen } from '@testing-library/react'
+import { renderWithTranslation } from 'shared/lib/tests/renderWithTranslation'
+import { Sidebar } from 'widgets/Sidebar'
 
-describe("Sidebar", () => {
-    test("sidebar render", () => {
+describe('Sidebar', () => {
+    test('sidebar render', () => {
         render(<Sidebar />)
         expect(screen.getByTestId('sidebar')).toBeInTheDocument()
     })
@@ -11,7 +11,7 @@ describe("Sidebar", () => {
     test('test toggle', () => {
         renderWithTranslation(<Sidebar />)
         const toggleButton = screen.getByTestId('sidebar-toggle')
-        expect(screen.getByTestId('sidebar')).toBeInTheDocument();
+        expect(screen.getByTestId('sidebar')).toBeInTheDocument()
         fireEvent.click(toggleButton)
         expect(screen.getByTestId('sidebar')).toHaveClass('collapsed')
     })
