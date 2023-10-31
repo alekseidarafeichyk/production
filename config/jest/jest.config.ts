@@ -3,10 +3,9 @@
  * https://jestjs.io/docs/configuration
  */
 
-import type { Config } from 'jest'
 import path from 'path'
 
-const config: Config = {
+export default {
     // All imported modules in your tests should be mocked automatically
     // automock: false,
 
@@ -45,9 +44,9 @@ const config: Config = {
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
     ],
     // A list of paths to modules that run some code to configure or set up the testing framework before each test
-    setupFilesAfterEnv: ['<rootDir>/jest/jest-setup.ts'],
+    setupFilesAfterEnv: ['<rootDir>/config/jest/jest-setup.ts'],
     // The root directory that Jest should scan for tests and modules within
-    rootDir: '../',
+    rootDir: '../../',
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
@@ -218,5 +217,3 @@ const config: Config = {
     // Whether to use watchman for file crawling
     // watchman: true,
 }
-
-export default config

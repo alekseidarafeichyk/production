@@ -1,39 +1,39 @@
-{
-    "env": {
-        "browser": true,
-        "es2021": true
+module.exports = {
+    env: {
+        browser: true,
+        es2021: true
     },
-    "extends": [
+    extends: [
         "standard-with-typescript",
         "plugin:react/recommended"
     ],
-    "overrides": [
+    overrides: [
         {
-            "env": {
-                "node": true
+            env: {
+                node: true
             },
-            "files": [
+            files: [
                 ".eslintrc.{js,cjs}"
             ],
-            "parserOptions": {
-                "sourceType": "script"
+            parserOptions: {
+                sourceType: "script",
             }
         },
         {
-         "files": ["**/src/**/*.test.{ts,tsx}"],
-         "rules": {"i18next/no-literal-string": "off"}
+         files: ["**/src/**/*.test.{ts,tsx}"],
+         rules: {"i18next/no-literal-string": "off"}
 
         }
     ],
-    "parserOptions": {
-        "ecmaVersion": "latest",
-        "sourceType": "module"
+    parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module"
     },
-    "plugins": [
+    plugins: [
         "react",
         "i18next"
     ],
-    "rules": {
+    rules: {
         "i18next/no-literal-string": 2,
         "indent": ["error", 4, {
             "offsetTernaryExpressions": true,
