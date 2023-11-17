@@ -27,3 +27,5 @@ jobs:
         run: npm run stylelint:scss    
       - name: unit testing
         run: npm run unit:test
+      - name: screenshot testing
+        run: npm run test:ui:ci
