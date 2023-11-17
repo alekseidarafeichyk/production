@@ -1,7 +1,7 @@
 import type { StoryFn } from '@storybook/react'
 import { ThemeDecorator } from 'shared/config/storyboook/decorators/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
-import { Sidebar } from './Sidebar';
+import { Sidebar } from './Sidebar'
 
 export default {
     title: 'widgets/Sidebar',
