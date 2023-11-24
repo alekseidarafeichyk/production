@@ -1,4 +1,6 @@
 .sidebar {
+	display: flex;
+	flex-direction: column;
 	width: var(--sidebar-width);
 	height: calc(100vh - var(--navbar-height));
 	padding: 20px;
@@ -9,6 +11,17 @@
 
 .collapsed {
 	width: var(--sidebar-width-collapsed);
+}
+
+.collapse-btn {
+    position: absolute;
+    right: -32px;
+    bottom: 32px;
+}
+
+.links {
+	display: flex;
+	flex-direction: column;
 }
 
 .switchers {

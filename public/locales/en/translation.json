@@ -4,5 +4,6 @@
 	"Переключить": "toggle",
 	"throw error": "call error",
 	"Главная": "Main",
-	"О нас": "About us"
+	"О нас": "About us",
+	"Войти": "Login"
 }
