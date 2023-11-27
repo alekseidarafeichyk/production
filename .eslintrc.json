@@ -71,6 +71,7 @@
         "react/react-in-jsx-scope": "off",
         "react/no-deprecated": "off",
         "no-tabs": "off",
+        "react/display-name": "off",
         "no-mixed-spaces-and-tabs": ["error","smart-tabs"],
         "@typescript-eslint/indent": "off",
         "@typescript-eslint/prefer-nullish-coalescing": "off",

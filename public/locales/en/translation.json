@@ -5,5 +5,7 @@
 	"throw error": "call error",
 	"Главная": "Main",
 	"О нас": "About us",
-	"Войти": "Login"
+	"Войти": "Login",
+	"Имя": "Name",
+	"Пароль": "Password"
 }

@@ -11,11 +11,27 @@ interface ModalProps {
     children: ReactNode
     className?: string
     onClose?: () => void
+    lazy?: boolean
 }
 
-export const Modal: FC<ModalProps> = ({ isOpen, className, children, onClose }) => {
+export const Modal: FC<ModalProps> = (
+    {
+        isOpen,
+        className,
+        children,
+        onClose,
+        lazy = true
+    }
+) => {
+    const [isMounted, setIsMounted] = useState(false)
     const [isClosing, setIsClosing] = useState(false)
     const timerRef = useRef<ReturnType<typeof setTimeout>>(null)
+
+    useEffect(() => {
+        if (isOpen && lazy) {
+            setIsMounted(true)
+        }
+    }, [isOpen])
 
     const mods = {
         [cls.opened]: isOpen,
@@ -52,6 +68,10 @@ export const Modal: FC<ModalProps> = ({ isOpen, className, children, onClose }) 
             window.removeEventListener('keydown', onKeyDown)
         }
     }, [isOpen, onKeyDown])
+
+    if (!isMounted) {
+        return null
+    }
 
     return (
         <Portal>
