@@ -1,7 +1,9 @@
 import { Theme } from 'app/providers/ThemeProvider'
-import MainPage from './MainPage'
 import { ThemeDecorator } from 'shared/config/storyboook/decorators/ThemeDecorator'
+
 import { type StoryFn } from '@storybook/react'
+
+import MainPage from './MainPage'
 
 export default {
     title: 'pages/MainPage',

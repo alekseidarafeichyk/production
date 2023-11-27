@@ -1,11 +1,12 @@
 import type webpack from 'webpack'
-import 'webpack-dev-server'
 
-import { buildPlugins } from './buildPlugins'
-import { buildLoaders } from './buildLoaders'
-import { buildResolvers } from './buildResolvers'
 import { type BuildOptions } from './types/config'
 import { buildDevServer } from './buildDevServer'
+import { buildLoaders } from './buildLoaders'
+import { buildPlugins } from './buildPlugins'
+import { buildResolvers } from './buildResolvers'
+
+import 'webpack-dev-server'
 
 export function buildWebpackConfig (
     options: BuildOptions

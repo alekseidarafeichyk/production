@@ -1,10 +1,11 @@
+import { type FC } from 'react'
 import { useTheme } from 'app/providers/ThemeProvider'
-import { Button } from 'shared/ui/Button'
+import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext'
 import DarkModeIcon from 'shared/assets/icons/dark-mode.svg'
 import LightModeIcon from 'shared/assets/icons/light-mode.svg'
-import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext'
+import { Button } from 'shared/ui/Button'
+
 import cls from './ThemeSwitcher.module.scss'
-import { type FC } from 'react'
 
 export const ThemeSwitcher: FC = () => {
     const { theme, toggleTheme } = useTheme()

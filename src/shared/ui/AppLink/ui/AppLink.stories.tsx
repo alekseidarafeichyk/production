@@ -1,7 +1,9 @@
-import type { StoryFn } from '@storybook/react'
-import { AppLink, AppLinkTheme } from './AppLink'
-import { ThemeDecorator } from 'shared/config/storyboook/decorators/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
+import { ThemeDecorator } from 'shared/config/storyboook/decorators/ThemeDecorator'
+
+import type { StoryFn } from '@storybook/react'
+
+import { AppLink, AppLinkTheme } from './AppLink'
 
 export default {
     title: 'shared/AppLink',

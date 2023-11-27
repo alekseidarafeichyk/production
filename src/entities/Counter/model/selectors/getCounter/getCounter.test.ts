@@ -1,6 +1,8 @@
-import { type DeepPartial } from '@reduxjs/toolkit'
-import { getCounter } from './getCounter'
 import { type StateSchema } from 'app/providers/StoreProvider'
+
+import { type DeepPartial } from '@reduxjs/toolkit'
+
+import { getCounter } from './getCounter'
 
 describe('getCounter', () => {
     test('should return counter', () => {

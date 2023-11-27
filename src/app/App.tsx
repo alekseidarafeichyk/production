@@ -1,7 +1,8 @@
-import { AppRouter } from './providers/router'
+import { type FC, Suspense } from 'react'
 import { Navbar } from 'widgets/Navbar'
-import { Suspense, type FC } from 'react'
 import { Sidebar } from 'widgets/Sidebar'
+
+import { AppRouter } from './providers/router'
 
 export const App: FC = () => {
     return (

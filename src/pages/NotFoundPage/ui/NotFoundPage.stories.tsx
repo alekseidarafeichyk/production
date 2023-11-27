@@ -1,6 +1,8 @@
 import { Theme } from 'app/providers/ThemeProvider'
 import { ThemeDecorator } from 'shared/config/storyboook/decorators/ThemeDecorator'
+
 import { type StoryFn } from '@storybook/react'
+
 import { NotFoundPage } from './NotFoundPage'
 
 export default {

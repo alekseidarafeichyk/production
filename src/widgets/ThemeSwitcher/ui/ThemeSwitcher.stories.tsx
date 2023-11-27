@@ -1,6 +1,8 @@
-import type { StoryFn } from '@storybook/react'
-import { ThemeDecorator } from 'shared/config/storyboook/decorators/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
+import { ThemeDecorator } from 'shared/config/storyboook/decorators/ThemeDecorator'
+
+import type { StoryFn } from '@storybook/react'
+
 import { ThemeSwitcher } from './ThemeSwitcher'
 
 export default {

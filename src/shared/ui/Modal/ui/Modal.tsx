@@ -1,8 +1,8 @@
-import { type ReactNode, type FC, useRef, useState, useCallback, useEffect } from 'react'
-
-import cls from './Modal.module.scss'
+import { type FC, type ReactNode, useCallback, useEffect, useRef, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Portal } from 'shared/ui/Portal'
+
+import cls from './Modal.module.scss'
 
 const ANIMATION_DELAY = 300
 

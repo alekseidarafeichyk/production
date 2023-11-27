@@ -1,5 +1,5 @@
 /* eslint-disable n/handle-callback-err */
-import { type ErrorInfo, type ReactNode, Suspense, Component } from 'react'
+import { Component, type ErrorInfo, type ReactNode, Suspense } from 'react'
 import { PageError } from 'widgets/PageError'
 
 interface ErrorBoundaryProps {

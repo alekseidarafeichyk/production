@@ -1,8 +1,9 @@
-import type { Preview } from '@storybook/react'
+import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext'
 import { StyleDecorator } from 'shared/config/storyboook/decorators/StyleDecorator'
 import { ThemeDecorator } from 'shared/config/storyboook/decorators/ThemeDecorator'
 import { RouterDecorator } from 'shared/config/storyboook/RouterDecorator'
-import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext'
+
+import type { Preview } from '@storybook/react'
 
 const preview: Preview = {
     parameters: {

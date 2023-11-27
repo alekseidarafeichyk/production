@@ -23,7 +23,33 @@
         {
          "files": ["**/src/**/*.test.{ts,tsx}"],
          "rules": {"i18next/no-literal-string": "off"}
-        }
+        },
+        {
+            "files": ["**/*.js", "**/*.ts", "**/*.tsx"],
+            "rules": {
+              "simple-import-sort/imports": [
+                "error",
+                {
+                  "groups": [
+                    // `react` first, `next` second, then packages starting with a character
+                    ["^react$", "^next", "^[a-z]"],
+                    // Packages starting with `@`
+                    ["^@"],
+                    // Packages starting with `~`
+                    ["^~"],
+                    // Imports starting with `../`
+                    ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+                    // Imports starting with `./`
+                    ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+                    // Style imports
+                    ["^.+\\.s?css$"],
+                    // Side effect imports
+                    ["^\\u0000"]
+                  ]
+                }
+              ]
+            }
+          }
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -31,9 +57,12 @@
     },
     "plugins": [
         "react",
-        "i18next"
+        "i18next",
+        "simple-import-sort"
     ],
     "rules": {
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error",
         "i18next/no-literal-string": 2,
         "indent": ["error", 4, {
             "offsetTernaryExpressions": true,
