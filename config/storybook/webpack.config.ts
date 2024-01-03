@@ -1,5 +1,5 @@
 import path from 'path'
-import type webpack from 'webpack'
+import webpack from 'webpack'
 import { type RuleSetRule } from 'webpack'
 
 import buildCssLoader from '../build/loaders/buildCssLoader'
@@ -30,6 +30,10 @@ export default ({ config }: { config: webpack.Configuration }): any => {
     })
 
     config.module.rules.push(buildCssLoader(true))
+
+    config.plugins.push(new webpack.DefinePlugin({
+        __IS__DEV__: true
+    }),)
 
     return config
 }

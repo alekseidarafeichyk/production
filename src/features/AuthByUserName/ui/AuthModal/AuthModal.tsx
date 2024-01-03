@@ -1,6 +1,7 @@
 import { type FC } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Modal } from 'shared/ui/Modal'
+import { Text } from 'shared/ui/Text'
 
 import { AuthForm } from '../AuthForm/AuthForm'
 
@@ -17,6 +18,7 @@ export const AuthModal: FC<AuthModalProps> = ({ className, isOpen, onClose }) =>
             onClose={onClose}
             className={classNames('', {}, [className])}
         >
+            <Text title='Форма авторизации пользователя'/>
             <AuthForm />
         </Modal>
     )
