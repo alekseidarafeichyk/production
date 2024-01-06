@@ -1,9 +1,10 @@
-import { type FC } from 'react'
+import { type FC, Suspense } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
+import { Loader } from 'shared/ui/Loader'
 import { Modal } from 'shared/ui/Modal'
 import { Text } from 'shared/ui/Text'
 
-import { AuthForm } from '../AuthForm/AuthForm'
+import { AuthFormAsync } from '../AuthForm/AuthForm.async'
 
 interface AuthModalProps {
     className?: string
@@ -19,7 +20,9 @@ export const AuthModal: FC<AuthModalProps> = ({ className, isOpen, onClose }) =>
             className={classNames('', {}, [className])}
         >
             <Text title='Форма авторизации пользователя'/>
-            <AuthForm />
+            <Suspense fallback={<Loader />}>
+                <AuthFormAsync />
+            </Suspense>
         </Modal>
     )
 }

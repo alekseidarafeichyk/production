@@ -19,8 +19,6 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
     const dispatch = useDispatch<any>()
     const authData = useSelector(getUserAuthData)
 
-    console.log(authData)
-
     const onToggleAuthModal = (): void => {
         setIsAuthModal(prev => !prev)
     }
@@ -38,7 +36,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
                 >
                     {t('Войти')}
                 </Button>
-                <AuthModal onClose={onToggleAuthModal} isOpen={isAuthModal} />
+                {isAuthModal && <AuthModal onClose={onToggleAuthModal} isOpen={isAuthModal} />}
             </div>
         )
     }
