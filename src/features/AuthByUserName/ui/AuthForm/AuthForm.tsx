@@ -10,7 +10,7 @@ import { Input } from 'shared/ui/Input'
 import { Text, TextTheme } from 'shared/ui/Text'
 
 import { getAuthError } from '../../model/selectors/getAuthError/getAuthError'
-import { getAuthPassword } from '../../model/selectors/getAuthPassword copy 2/getAuthPassword'
+import { getAuthPassword } from '../../model/selectors/getAuthPassword/getAuthPassword'
 import { getAuthUserName } from '../../model/selectors/getAuthUserName/getAuthUserName'
 import { authByUserNameThunk } from '../../model/services/authByUserName'
 import { authActions, authReducer } from '../../model/slice/authSlice'

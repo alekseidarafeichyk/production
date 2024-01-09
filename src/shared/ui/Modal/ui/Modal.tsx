@@ -31,7 +31,7 @@ export const Modal: FC<ModalProps> = (
         if (isOpen && lazy) {
             setIsMounted(true)
         }
-    }, [isOpen])
+    }, [isOpen, lazy])
 
     const mods = {
         [cls.opened]: isOpen,

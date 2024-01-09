@@ -39,7 +39,7 @@ export const Input = memo(
         const onChangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
             onChange?.(e.target.value)
             setCaretPosition(e.target.value.length)
-        }, [])
+        }, [onChange])
 
         const onChangeFocus = (): void => {
             setIsFocused(prev => !prev)

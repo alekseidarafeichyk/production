@@ -17,9 +17,9 @@ Primary.decorators = [StoreDecorator({
     auth: { username: '123', password: 'asd' },
 })]
 
-export const withError = Template.bind({})
-withError.args = {}
-withError.decorators = [StoreDecorator({
+export const WithError = Template.bind({})
+WithError.args = {}
+WithError.decorators = [StoreDecorator({
     auth: { username: '123', password: 'asd', error: 'ERROR' },
 })]
 

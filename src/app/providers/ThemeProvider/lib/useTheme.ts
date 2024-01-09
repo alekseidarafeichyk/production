@@ -15,7 +15,7 @@ export const useTheme = (): UseThemeResult => {
         if (!documentBody.className) {
             documentBody.className = theme
         }
-    }, [theme])
+    }, [theme, documentBody])
 
     const toggleTheme = (): void => {
         let newTheme: Theme
