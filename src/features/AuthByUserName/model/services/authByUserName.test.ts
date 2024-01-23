@@ -1,8 +1,5 @@
-import { type StateSchema } from 'app/providers/StoreProvider'
 import axios from 'axios'
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk'
-
-import { type Dispatch } from '@reduxjs/toolkit'
 
 import { userActions } from './../../../../entities/User'
 import { authByUserNameThunk } from './authByUserName'
