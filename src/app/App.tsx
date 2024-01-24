@@ -5,9 +5,10 @@ import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
 
 import { AppRouter } from './providers/router'
+import { type AppDispatch } from './providers/StoreProvider'
 
 export const App: FC = () => {
-    const dispatch = useDispatch<any>()
+    const dispatch = useDispatch<AppDispatch>()
 
     useEffect(() => {
         dispatch(userActions.initAuthUser())

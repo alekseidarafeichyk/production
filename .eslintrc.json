@@ -79,17 +79,13 @@
         "@typescript-eslint/strict-boolean-expressions": "off",
         "@typescript-eslint/naming-convention": "off",
         "@typescript-eslint/no-floating-promises": "off",
-        "@typescript-eslint/comma-dangle": "off"
+        "@typescript-eslint/comma-dangle": "off",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-misused-promises": [
+            "error",
+            {
+              "checksVoidReturn": false
+            }
+          ]
     }
 }
-// {
-//     "env": {
-//                 "browser": true,
-//                 "es2021": true
-//             },
-//     "extends": [
-//         "standard-with-typescript",
-//         "plugin:react/recommended",
-//         "plugin:storybook/recommended"
-//         ]
-// }

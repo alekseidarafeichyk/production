@@ -21,7 +21,7 @@ export const AuthModal: FC<AuthModalProps> = ({ className, isOpen, onClose }) =>
         >
             <Text title='Форма авторизации пользователя'/>
             <Suspense fallback={<Loader />}>
-                <AuthFormAsync />
+                <AuthFormAsync onSuccess={onClose}/>
             </Suspense>
         </Modal>
     )

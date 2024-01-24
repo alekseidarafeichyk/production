@@ -1,8 +1,9 @@
-import { type FC, useCallback, useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 import { AuthModal } from 'features/AuthByUserName'
 import { useTranslation } from 'react-i18next'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { classNames } from 'shared/lib/classNames/classNames'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { Button } from 'shared/ui/Button'
 import { ButtonTheme } from 'shared/ui/Button/ui/Button'
 
@@ -14,10 +15,10 @@ interface NavbarProps {
 	className?: string
 }
 
-export const Navbar: FC<NavbarProps> = ({ className }) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
     const [isAuthModal, setIsAuthModal] = useState(false)
     const { t } = useTranslation()
-    const dispatch = useDispatch<any>()
+    const dispatch = useAppDispatch()
     const authData = useSelector(getUserAuthData)
 
     const onToggleAuthModal = (): void => {
@@ -52,4 +53,4 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
             </Button>
         </div>
     )
-}
+})

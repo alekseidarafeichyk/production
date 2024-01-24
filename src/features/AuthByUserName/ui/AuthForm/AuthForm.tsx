@@ -1,9 +1,10 @@
 import { type FC, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import i18n from 'shared/config/i18n/i18n'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { Button } from 'shared/ui/Button'
 import { ButtonSize, ButtonTheme } from 'shared/ui/Button/ui/Button'
 import { Input } from 'shared/ui/Input'
@@ -19,15 +20,16 @@ import cls from './AuthForm.module.scss'
 
 interface AuthFormProps {
   className?: string
+  onSuccess: () => void
 }
 
 const initReducers: ReducersList = {
     auth: authReducer
 }
 
-const AuthForm: FC<AuthFormProps> = ({ className }) => {
+const AuthForm: FC<AuthFormProps> = ({ className, onSuccess }) => {
     const { t } = useTranslation()
-    const dispatch = useDispatch<any>()
+    const dispatch = useAppDispatch()
     const username = useSelector(getAuthUserName)
     const password = useSelector(getAuthPassword)
     const error = useSelector(getAuthError)
@@ -40,9 +42,12 @@ const AuthForm: FC<AuthFormProps> = ({ className }) => {
         dispatch(authActions.setPassword(value))
     }, [dispatch])
 
-    const onLoginClick = useCallback((): void => {
-        dispatch(authByUserNameThunk({ username, password }))
-    }, [dispatch, password, username])
+    const onLoginClick = useCallback(async () => {
+        const result = await dispatch(authByUserNameThunk({ username, password }))
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess()
+        }
+    }, [dispatch, password, username, onSuccess])
 
     return (
         <DynamicModuleLoader reducers={initReducers}>
