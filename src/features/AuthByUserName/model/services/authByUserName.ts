@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { type User } from 'entities/User/model/types/user'
-import { USER_LOCALSTORAGE_KEY } from 'shared/constants/constants'
+import { USER_LOCALSTORAGE_KEY } from 'shared/constants/localstorage'
 
 import { createAsyncThunk } from '@reduxjs/toolkit'
 

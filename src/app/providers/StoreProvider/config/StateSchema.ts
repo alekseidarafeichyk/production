@@ -1,3 +1,4 @@
+import { type ProfileSchema } from 'entities/Profile'
 import { type UserSchema } from 'entities/User'
 import { type AuthSchema } from 'features/AuthByUserName'
 
@@ -7,6 +8,7 @@ import { type ToolkitStore } from '@reduxjs/toolkit/dist/configureStore'
 export interface StateSchema {
     user: UserSchema
     auth?: AuthSchema
+    profile?: ProfileSchema
 }
 
 export type StateSchemaKeys = keyof StateSchema
