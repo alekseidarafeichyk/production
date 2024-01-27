@@ -1,6 +1,8 @@
+import { type AxiosInstance } from 'axios'
 import { type ProfileSchema } from 'entities/Profile'
 import { type UserSchema } from 'entities/User'
 import { type AuthSchema } from 'features/AuthByUserName'
+import { type NavigateFunction } from 'react-router-dom'
 
 import { type AnyAction, type CombinedState, type Reducer, type ReducersMapObject } from '@reduxjs/toolkit'
 import { type ToolkitStore } from '@reduxjs/toolkit/dist/configureStore'
@@ -22,4 +24,14 @@ export interface ReducerManager {
 
 export interface ReduxStoreWithManager extends ToolkitStore<StateSchema> {
     reducerManager: ReducerManager
+}
+
+export interface ThunkExtraArg {
+    api: AxiosInstance
+    navigate: NavigateFunction
+}
+
+export interface ThunkConfig<T> {
+    rejectValue: T
+    extra: ThunkExtraArg
 }

@@ -12,15 +12,15 @@ import './shared/config/i18n/i18n'
 
 ReactDOM.render(
     <React.StrictMode>
-        <StoreProvider>
-            <BrowserRouter>
+        <BrowserRouter>
+            <StoreProvider>
                 <ErrorBoundary>
                     <ThemeProvider>
                         <App />
                     </ThemeProvider>
                 </ErrorBoundary>
-            </BrowserRouter>
-        </StoreProvider>
+            </StoreProvider>
+        </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')
 )

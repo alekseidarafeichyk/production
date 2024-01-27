@@ -1,16 +1,20 @@
-import { type AnyAction, configureStore, type ReducersMapObject, type ThunkMiddleware } from '@reduxjs/toolkit'
+import { type NavigateFunction } from 'react-router-dom'
+import { $api } from 'shared/api/api'
+
+import { type AnyAction, configureStore, type MiddlewareArray, type ReducersMapObject, type ThunkMiddleware } from '@reduxjs/toolkit'
 import { type ToolkitStore } from '@reduxjs/toolkit/dist/configureStore'
 
 import { userReducer } from '../../../../entities/User'
 
 import { createReducerManager } from './reducerManager'
-import { type StateSchema } from './StateSchema'
+import { type StateSchema, type ThunkExtraArg } from './StateSchema'
 
-type CreateReduxStore = ToolkitStore<StateSchema, AnyAction, [ThunkMiddleware<StateSchema, AnyAction>]>
+type CreateReduxStore = ToolkitStore<StateSchema, AnyAction, MiddlewareArray<[ThunkMiddleware<StateSchema, AnyAction, ThunkExtraArg>]>>
 
 export function createReduxStore (
     initialState?: StateSchema,
-    asyncReducers?: ReducersMapObject<StateSchema>
+    asyncReducers?: ReducersMapObject<StateSchema>,
+    navigate?: NavigateFunction
 ): CreateReduxStore {
     const rootReducer: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
@@ -19,10 +23,20 @@ export function createReduxStore (
 
     const reducerManager = createReducerManager(rootReducer)
 
-    const store = configureStore<StateSchema>({
+    const extraArg: ThunkExtraArg = {
+        api: $api,
+        navigate
+    }
+
+    const store = configureStore({
         reducer: reducerManager.reduce,
         devTools: __IS__DEV__,
         preloadedState: initialState,
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+            thunk: {
+                extraArgument: extraArg
+            }
+        })
     })
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
