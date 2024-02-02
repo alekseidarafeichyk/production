@@ -1,7 +1,5 @@
 import { type StateSchema } from 'app/providers/StoreProvider'
 
-import { type DeepPartial } from '@reduxjs/toolkit'
-
 import { getAuthPassword } from './getAuthPassword'
 
 describe('getAuthPassword', () => {

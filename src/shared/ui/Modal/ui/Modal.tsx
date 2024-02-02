@@ -1,5 +1,5 @@
 import { type FC, type ReactNode, useCallback, useEffect, useRef, useState } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames, type Mods } from 'shared/lib/classNames/classNames'
 import { Portal } from 'shared/ui/Portal'
 
 import cls from './Modal.module.scss'
@@ -25,7 +25,7 @@ export const Modal: FC<ModalProps> = (
 ) => {
     const [isMounted, setIsMounted] = useState(false)
     const [isClosing, setIsClosing] = useState(false)
-    const timerRef = useRef<ReturnType<typeof setTimeout>>(null)
+    const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
     useEffect(() => {
         if (isOpen && lazy) {
@@ -33,7 +33,7 @@ export const Modal: FC<ModalProps> = (
         }
     }, [isOpen, lazy])
 
-    const mods = {
+    const mods: Mods = {
         [cls.opened]: isOpen,
         [cls['is-closing']]: isClosing
     }
@@ -64,7 +64,9 @@ export const Modal: FC<ModalProps> = (
         }
 
         return () => {
-            clearTimeout(timerRef.current)
+            if (timerRef.current) {
+                clearTimeout(timerRef.current)
+            }
             window.removeEventListener('keydown', onKeyDown)
         }
     }, [isOpen, onKeyDown])

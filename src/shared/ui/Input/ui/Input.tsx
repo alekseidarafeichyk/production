@@ -26,15 +26,14 @@ export const Input = memo(
     ) => {
         const [isFocused, setIsFocused] = useState(false)
         const [caretPosition, setCaretPosition] = useState(0)
+        const inputRef = useRef<HTMLInputElement>(null)
 
         useEffect(() => {
-            if (autofocus) {
+            if (autofocus && inputRef.current) {
                 setIsFocused(true)
                 inputRef.current.focus()
             }
         }, [autofocus])
-
-        const inputRef = useRef<HTMLInputElement>(null)
 
         const onChangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
             onChange?.(e.target.value)

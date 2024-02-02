@@ -13,7 +13,7 @@ export const useTheme = (): UseThemeResult => {
 
     useEffect(() => {
         if (!documentBody.className) {
-            documentBody.className = theme
+            documentBody.className = theme || Theme.LIGHT
         }
     }, [theme, documentBody])
 
@@ -32,11 +32,13 @@ export const useTheme = (): UseThemeResult => {
         }
         document.body.className = newTheme
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme)
-        setTheme(newTheme)
+        if (setTheme) {
+            setTheme(newTheme)
+        }
     }
 
     return {
-        theme,
+        theme: theme || Theme.LIGHT,
         toggleTheme,
     }
 }

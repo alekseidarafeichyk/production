@@ -1,4 +1,4 @@
-import React, { type ReactNode } from 'react'
+import { type ReactNode } from 'react'
 
 const jestEmptyComponent: ReactNode = function () {
     return <div />

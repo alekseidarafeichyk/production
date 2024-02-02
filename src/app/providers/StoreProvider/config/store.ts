@@ -1,7 +1,7 @@
 import { type NavigateFunction } from 'react-router-dom'
 import { $api } from 'shared/api/api'
 
-import { type AnyAction, configureStore, type MiddlewareArray, type ReducersMapObject, type ThunkMiddleware } from '@reduxjs/toolkit'
+import { type AnyAction, type CombinedState, configureStore, type MiddlewareArray, type Reducer, type ReducersMapObject, type ThunkMiddleware } from '@reduxjs/toolkit'
 import { type ToolkitStore } from '@reduxjs/toolkit/dist/configureStore'
 
 import { userReducer } from '../../../../entities/User'
@@ -29,7 +29,7 @@ export function createReduxStore (
     }
 
     const store = configureStore({
-        reducer: reducerManager.reduce,
+        reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
         devTools: __IS__DEV__,
         preloadedState: initialState,
         middleware: (getDefaultMiddleware) => getDefaultMiddleware({

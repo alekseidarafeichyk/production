@@ -1,5 +1,5 @@
 import { type ButtonHTMLAttributes, type FC } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames, type Mods } from 'shared/lib/classNames/classNames'
 
 import cls from './Button.module.scss'
 
@@ -29,7 +29,7 @@ export const Button: FC<ButtonProps> = ({
     size = ButtonSize.M,
     ...otherProps
 }) => {
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls[theme]]: true,
         [cls[size]]: true,
     }

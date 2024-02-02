@@ -1,4 +1,4 @@
-import React, { type FC, memo } from 'react'
+import { type FC, memo } from 'react'
 import { profileReducer } from 'entities/Profile'
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader'
 
