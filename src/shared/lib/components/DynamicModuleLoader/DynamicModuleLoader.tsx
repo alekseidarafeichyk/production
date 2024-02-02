@@ -10,8 +10,6 @@ export type ReducersList = {
     [key in StateSchemaKeys]?: Reducer
 }
 
-type ReducersListEntry = [StateSchemaKeys, Reducer]
-
 interface DynamicModuleLoaderProps {
     children: ReactNode
     reducers: ReducersList
